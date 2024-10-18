@@ -13,7 +13,7 @@ public class View {
     public View(Controller controller){
         this.controller = controller;
     }
-    
+
     public String readColor(){
         scanner = new Scanner(System.in);
         String color;
@@ -82,13 +82,10 @@ public class View {
     }
 
     public void display() {
-        //Vehicle[] filteredItems = controller.filterByColor(color);
-        Vehicle[] vehicles = controller.getAllVehicles();
-        for(Vehicle item : vehicles) {
+        Vehicle[] filteredItems = controller.filterByColor(color);
+        //Vehicle[] vehicles = controller.getAllVehicles();
+        for(Vehicle item : filteredItems) {
             //System.out.println("1");
-            if(item == null){
-                break;
-            }
             System.out.println(item);
         }
     }
@@ -149,7 +146,7 @@ public class View {
                 System.out.println("Error: " + e.getMessage());
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number for the menu option.");
-                scanner.next(); // Consume the invalid input
+                scanner.next();
             } catch (Exception e) {
                 System.out.println("An unexpected error occurred: " + e.getMessage());
             }

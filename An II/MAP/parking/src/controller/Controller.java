@@ -25,7 +25,9 @@ public class Controller {
                     filteredVehicles[actualPos++] = allVehicles[pos];
                 }
             }
-            return filteredVehicles;
+            Vehicle[] filteredVehicles1 = new Vehicle[actualPos];
+            System.arraycopy(filteredVehicles, 0, filteredVehicles1, 0, actualPos);
+            return filteredVehicles1;
     }
 
     public void add(Vehicle veh) throws RepoExceptions{
