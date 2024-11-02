@@ -16,6 +16,7 @@ public class Repo implements IRepo{
     @Override
     public void add(Vehicle veh) throws RepoExceptions {
     for (int i = 0; i < this.length; i++) {
+        //this.vehicle[i].equals(veh)
         if (this.vehicles[i].getName().equals(veh.getName()) &&
             this.vehicles[i].getColor().equals(veh.getColor())) {
             throw new RepoExceptions("Vehicle already exists in the repository!");

@@ -27,7 +27,7 @@ public class View {
                 scanner.next();
             }
         }
-        System.out.println("color: " + color);
+        //System.out.println("color: " + color);
     return color;
     }
 
@@ -93,12 +93,12 @@ public class View {
     public void displayMenu() {
         System.out.println("Choose option:");
         System.out.println("1. Populate in-memory Vehicles");
-        System.out.println("2. Display Vehicles");
-        System.out.println("3. Filter Vehicles");
-        System.out.println("4. Add a Vehicle");
-        System.out.println("5. Remove a Vehicle");
+        //System.out.println("2. Display Vehicles");
+        System.out.println("2. Filter Vehicles");
+        System.out.println("3. Add a Vehicle");
+        System.out.println("4. Remove a Vehicle");
 
-        System.out.println("6. Exit");
+        System.out.println("5. Exit");
     }
 
     private void populate() throws RepoExceptions {
@@ -124,20 +124,20 @@ public class View {
                     case 1: // add
                         populate();
                         break;
-                    case 2: // display
-                        display();
-                        break;
-                    case 3: // filter
+                    //case 2: // display
+                        //display();
+                        //break;
+                    case 2: // filter
                         color = readColor();
                         display();
                         break;
-                    case 4: // add
+                    case 3: // add
                         addVehicle();
                         break;
-                    case 5: // remove
+                    case 4: // remove
                         removeVehicle();
                         break;
-                    case 6:
+                    case 5:
                         scanner.close();
                         System.exit(0);
                 }
