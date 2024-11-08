@@ -24,7 +24,7 @@ public class IntIValue  implements IValue{
 
     @Override
     public String toString(){
-        return "int";
+        return String.valueOf(val);
     }
 
 }

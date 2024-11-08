@@ -11,3 +11,5 @@ public class Main {
         view.run();
     }
 }
+
+// schimba in visual, fisierele ".class" sa fie facute in alta parte, preferabil in bin
