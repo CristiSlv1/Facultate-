@@ -10,29 +10,36 @@ public class AssignStmt implements IStmt{
     private final String variableName;
     private final IExp expression;
 
-    public AssignStmt(String id, IExp e){
+    public AssignStmt(String id , IExp e)
+    {
         this.variableName = id;
         this.expression = e;
     }
 
     @Override
-    public PrgState execute(PrgState prgState) throws StatementException, ADTException {
-        if(!prgState.getSymTable().contains(this.variableName)){
-            throw new StatementException("Variable not found!\n");
-        }
-        IValue value = prgState.getSymTable().getValue(this.variableName);
-        IValue evalValue = this.expression.eval(prgState.getSymTable());
+    public String toString()
+    {
+        return variableName+" = "+expression.toString();
+    }
 
-        if (value.getType().equals(evalValue.getType())){
-            throw new StatementException("Value type mismatch!\n");
-        }
-        prgState.getSymTable().insert(variableName, evalValue);
+    @Override
+    public PrgState execute(PrgState prgState) throws StatementException , ADTException
+    {
+        if(!prgState.getSymTable().contains(this.variableName))
+            throw new StatementException("Variable was not found");
+        IValue value = prgState.getSymTable().getValue(this.variableName);
+        IValue evalValue = this.expression.eval(prgState.getSymTable(), prgState.getHeap());
+
+        if(!value.getType().equals(evalValue.getType()))
+            throw new StatementException("Value type mismatch");
+        prgState.getSymTable().insert(variableName,evalValue);
         return prgState;
     }
 
     @Override
-    public String toString() {
-        return variableName + " = " + expression.toString();
+    public IStmt deepCopy() {
+        return new AssignStmt(this.variableName, this.expression.deepCopy());
     }
+
 
 }

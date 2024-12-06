@@ -4,7 +4,7 @@ import exceptions.ADTException;
 import exceptions.StatementException;
 import model.expressions.IExp;
 import model.states.PrgState;
-import model.types.BoolIType;
+import model.types.BoolType;
 import model.values.BoolValue;
 import model.values.IValue;
 
@@ -22,8 +22,8 @@ public class IfStmt implements IStmt{
 
     @Override
     public PrgState execute(PrgState state) throws StatementException, ADTException {
-        IValue value = expression.eval(state.getSymTable());
-        if(value.getType().equals(new BoolIType())){
+        IValue value = expression.eval(state.getSymTable(), state.getHeap());
+        if(!value.getType().equals(new BoolType())){
             throw new StatementException("Expression is not boolean!\n");
         }
         if(((BoolValue)value).getVal()){
@@ -33,6 +33,11 @@ public class IfStmt implements IStmt{
             state.getExeStack().push(elseStatement);
         }
         return state;
+    }
+
+    @Override
+    public IStmt deepCopy() {
+        return new IfStmt(this.expression.deepCopy() , this.thenStatement.deepCopy() , this.elseStatement.deepCopy());
     }
 
     @Override

@@ -22,6 +22,12 @@ public class CompStmt implements IStmt{
     }
     
     @Override
+    public IStmt deepCopy() {
+        return new CompStmt(this.statement1.deepCopy() , this.statement2.deepCopy());
+    }
+
+    
+    @Override
     public String toString(){
         return "(" + statement1.toString() + ";" + statement2.toString() + ")";
     }

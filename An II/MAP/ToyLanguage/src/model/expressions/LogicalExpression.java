@@ -3,7 +3,8 @@ package model.expressions;
 import exceptions.ADTException;
 import exceptions.ExpressionException;
 import model.adt.IMyDictionary;
-import model.types.BoolIType;
+import model.adt.IMyHeap;
+import model.types.BoolType;
 import model.values.BoolValue;
 import model.values.IValue;
 
@@ -20,28 +21,35 @@ public class LogicalExpression implements IExp {
     }
 
     @Override
-    public IValue eval(IMyDictionary<String, IValue> symtbl) throws ADTException, ExpressionException {
-        IValue evaluatedExpressionLeft = left.eval(symtbl);
-        IValue evaluatedExpressionRight = right.eval(symtbl);
-        
-        if(evaluatedExpressionLeft.getType().equals(new BoolIType())){
-            throw new ExpressionException("Left expression is not a boolean type!\n");
+    public IValue eval(IMyDictionary<String, IValue> symtbl, IMyHeap heap) throws ADTException, ExpressionException {
+        IValue evaluatedExpressionLeft = left.eval(symtbl, heap);
+        IValue evaluatedExpressionRight = right.eval(symtbl, heap);
+
+        if(evaluatedExpressionLeft.getType().equals(new BoolType())){
+            throw new ExpressionException("Left expression is not a boolean type!");
         }
 
-        if(evaluatedExpressionRight.getType().equals(new BoolIType())){
-            throw new ExpressionException("Right expression is not a boolean type!\n");
+        if(evaluatedExpressionRight.getType().equals(new BoolType())){
+            throw new ExpressionException("Right expression is not a boolean type!");
         }
 
-        return switch(operator){
-            case LogicalOperator.AND -> new BoolValue(((BoolValue) evaluatedExpressionLeft).getVal() && ((BoolValue) evaluatedExpressionRight).getVal());
-            case LogicalOperator.OR -> new BoolValue(((BoolValue) evaluatedExpressionLeft).getVal() ||  ((BoolValue) evaluatedExpressionRight).getVal());
-            default -> throw new ExpressionException("Unknown operator!\n");
+        return switch (operator) {
+            case AND ->
+                    new BoolValue(((BoolValue) evaluatedExpressionLeft).getVal() && ((BoolValue) evaluatedExpressionRight).getVal());
+            case OR ->
+                    new BoolValue(((BoolValue) evaluatedExpressionLeft).getVal() || ((BoolValue) evaluatedExpressionRight).getVal());
+            default -> throw new ExpressionException("Unknown operator");
         };
     }
 
     @Override
+    public IExp deepCopy() {
+        return new LogicalExpression(this.left.deepCopy() , this.right.deepCopy() , this.operator);
+    }
+
+    @Override
     public String toString() {
-        return left.toString() + " " + operator.toString() + " " + right.toString() + "\n";
+        return left.toString() + " " + operator.toString() + " " + right.toString();
     }
 
 }

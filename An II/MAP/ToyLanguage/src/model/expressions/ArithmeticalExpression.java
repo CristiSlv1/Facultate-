@@ -1,11 +1,13 @@
 package model.expressions;
 
-import exceptions.ADTException;
 import exceptions.ExpressionException;
+import exceptions.KeyNotFoundException;
 import model.adt.IMyDictionary;
-import model.types.IntIType;
+import model.adt.IMyHeap;
+import model.adt.IMyMap;
+import model.types.IntType;
 import model.values.IValue;
-import model.values.IntIValue;
+import model.values.IntValue;
 
 public class ArithmeticalExpression implements IExp{
 
@@ -37,45 +39,48 @@ public class ArithmeticalExpression implements IExp{
 
 
     @Override
-    public IValue eval(IMyDictionary<String, IValue> symtbl) throws ADTException, ExpressionException {
-        IValue valueLeft = left.eval(symtbl);
-        IValue valueRight = right.eval(symtbl);
-        if(valueLeft.getType().equals(new IntIType())){
-            throw new ExpressionException("First value is not int!\n");
-        }
+    public IValue eval(IMyDictionary<String, IValue> symTable, IMyHeap heap) throws ExpressionException, KeyNotFoundException {
 
-        if(valueRight.getType().equals(new IntIType())){
-            throw new ExpressionException("Second value is not int!\n");
-        }
+        IValue value1 = this.left.eval(symTable, heap);
+        IValue value2 = this.right.eval(symTable, heap);
 
-        IntIValue v1 = (IntIValue) valueLeft;
-        IntIValue v2 = (IntIValue) valueRight;
-        IValue result;
-        switch (this.operator){
-            case ADD:
-                result = new IntIValue(v1.getVal() + v2.getVal());
-                break;
-            case SUBTRACT:
-                result = new IntIValue(v1.getVal() - v2.getVal());
-                break;
-            case MULTIPLY:
-                result = new IntIValue(v1.getVal() * v2.getVal());
-                break;
-            case DIVIDE:
-                if(v2.getVal() == 0){
-                    throw new ExpressionException("Cannot divide by 0\n");
-                }
-                result = new IntIValue(v1.getVal() / v2.getVal());
-                break;
-            default:
-                throw new ExpressionException("Invalid operator!\n");
+        if (!value1.getType().equals(new IntType()))
+            throw new ExpressionException("First value must be int");
+        if (!value2.getType().equals(new IntType()))
+            throw new ExpressionException("Second value must be int");
+
+
+        int intValue1 = ((IntValue) value1).getVal();
+        int intValue2 = ((IntValue) value2).getVal();
+
+        switch (this.operator) {
+            case ADD -> {
+                return new IntValue(intValue1 + intValue2);
+            }
+            case SUBTRACT -> {
+                return new IntValue(intValue1 - intValue2);
+            }
+            case MULTIPLY -> {
+                return new IntValue(intValue1 * intValue2);
+            }
+            case DIVIDE -> {
+                if (intValue2 == 0)
+                    throw new ExpressionException("Division by 0");
+                return new IntValue(intValue1 / intValue2);
+            }
+            default -> {
+                throw new ExpressionException("Invalid operator");
+            }
         }
-        return result;
     }
 
     @Override
     public String toString(){
-        return this.left.toString() + " " + this.operator.toString() + ' ' + this.right.toString() + '\n';
+        return this.left.toString() + " " + this.operator.toString() + ' ' + this.right.toString() ;
     }
 
+    @Override
+    public IExp deepCopy() {
+        return new ArithmeticalExpression(this.left.deepCopy() , this.operator,this.right.deepCopy());
+    }
 }
