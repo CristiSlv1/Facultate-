@@ -1,1168 +1,511 @@
-EXE_STACK
-My stack contains: (int a;(a = 2;(int v;(v = a;print(v)))))
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-int a
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-int a
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int v;(v = a;print(v)))
-a = 2
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int v;(v = a;print(v)))
-a = 2
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int a;(a = 2;(int v;(v = a;print(v)))))
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-int a
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-int a
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (a = 2;(int v;(v = a;print(v))))
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int v;(v = a;print(v)))
-a = 2
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int v;(v = a;print(v)))
-a = 2
-
-SYM_TABLE
-a -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int v;(v = a;print(v)))
-
-SYM_TABLE
-a -> 2 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (int v;(v = a;print(v)))
-
-SYM_TABLE
-a -> 2 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (v = a;print(v))
+ID = 10
+Execution Stack = My stack contains: (int v;(Ref (int)  a;(v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))))))
+
+SymTable = My dictionary contains 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
+
+ID = 10
+Execution Stack = My stack contains: (Ref (int)  a;(v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))))
 int v
 
-SYM_TABLE
-a -> 2 (int)
+SymTable = My dictionary contains 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (v = a;print(v))
+ID = 10
+Execution Stack = My stack contains: (Ref (int)  a;(v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))))
 int v
 
-SYM_TABLE
-a -> 2 (int)
+SymTable = My dictionary contains 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-OUT
-My list contains 
-FILE_TABLE
+ID = 10
+Execution Stack = My stack contains: (Ref (int)  a;(v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))))
 
-HEAP
+SymTable = My dictionary contains v-> 0
 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-EXE_STACK
-My stack contains: (v = a;print(v))
+ID = 10
+Execution Stack = My stack contains: (Ref (int)  a;(v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))))
 
-SYM_TABLE
-a -> 2 (int)
-v -> 0 (int)
+SymTable = My dictionary contains v-> 0
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-HEAP
-
-
-EXE_STACK
-My stack contains: (v = a;print(v))
-
-SYM_TABLE
-a -> 2 (int)
-v -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: print(v)
-v = a
-
-SYM_TABLE
-a -> 2 (int)
-v -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: print(v)
-v = a
-
-SYM_TABLE
-a -> 2 (int)
-v -> 0 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: print(v)
-
-SYM_TABLE
-a -> 2 (int)
-v -> 2 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: print(v)
-
-SYM_TABLE
-a -> 2 (int)
-v -> 2 (int)
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: 
-SYM_TABLE
-a -> 2 (int)
-v -> 2 (int)
-
-OUT
-My list contains 2
-
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: 
-SYM_TABLE
-a -> 2 (int)
-v -> 2 (int)
-
-OUT
-My list contains 2
-
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  a;(Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))))
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
+ID = 10
+Execution Stack = My stack contains: (v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))))
 Ref (int)  a
 
-SYM_TABLE
+SymTable = My dictionary contains v-> 0
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
+ID = 10
+Execution Stack = My stack contains: (v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))))
 Ref (int)  a
 
-SYM_TABLE
+SymTable = My dictionary contains v-> 0
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-HEAP
+ID = 10
+Execution Stack = My stack contains: (v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))))
 
+SymTable = My dictionary contains a-> int
+v-> 0
 
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-SYM_TABLE
-a -> int (Ref (int) )
+ID = 10
+Execution Stack = My stack contains: (v = 10;((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))))
 
-OUT
-My list contains 
-FILE_TABLE
+SymTable = My dictionary contains a-> int
+v-> 0
 
-HEAP
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
+ID = 10
+Execution Stack = My stack contains: ((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))
+v = 10
 
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
+SymTable = My dictionary contains a-> int
+v-> 0
 
-SYM_TABLE
-a -> int (Ref (int) )
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-OUT
-My list contains 
-FILE_TABLE
+ID = 10
+Execution Stack = My stack contains: ((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))
+v = 10
 
-HEAP
+SymTable = My dictionary contains a-> int
+v-> 0
 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
-Ref (int)  b
+ID = 10
+Execution Stack = My stack contains: ((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))
 
-SYM_TABLE
-a -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-HEAP
+ID = 10
+Execution Stack = My stack contains: ((a 22);(Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a)))))
 
+SymTable = My dictionary contains a-> int
+v-> 10
 
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
-Ref (int)  b
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-SYM_TABLE
-a -> int (Ref (int) )
+ID = 10
+Execution Stack = My stack contains: (Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))
+(a 22)
 
-OUT
-My list contains 
-FILE_TABLE
+SymTable = My dictionary contains a-> int
+v-> 10
 
-HEAP
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
+ID = 10
+Execution Stack = My stack contains: (Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))
+(a 22)
 
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
+SymTable = My dictionary contains a-> int
+v-> 10
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 
+-----------------------
 
-OUT
-My list contains 
-FILE_TABLE
+ID = 10
+Execution Stack = My stack contains: (Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))
 
-HEAP
+SymTable = My dictionary contains a-> int
+v-> 10
 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
+-----------------------
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+ID = 10
+Execution Stack = My stack contains: (Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))));(print(v);print(HeapRead(a))))
 
-OUT
-My list contains 
-FILE_TABLE
+SymTable = My dictionary contains a-> int
+v-> 10
 
-HEAP
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
+-----------------------
 
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
-(a 20)
+ID = 10
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
+Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))))
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-HEAP
+-----------------------
 
+ID = 10
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
+Fork((WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a))))))
 
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
-(a 20)
+SymTable = My dictionary contains a-> int
+v-> 10
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-OUT
-My list contains 
-FILE_TABLE
+-----------------------
 
-HEAP
+ID = 10
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
 
+SymTable = My dictionary contains a-> int
+v-> 10
 
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+-----------------------
 
-OUT
-My list contains 
-FILE_TABLE
+ID = 11
+Execution Stack = My stack contains: (WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a)))))
 
-HEAP
-1(INT):-> 20
+SymTable = My dictionary contains a-> int
+v-> 10
 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
+-----------------------
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+ID = 10
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
 
-OUT
-My list contains 
-FILE_TABLE
+SymTable = My dictionary contains a-> int
+v-> 10
 
-HEAP
-1(INT):-> 20
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
+-----------------------
 
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
-b = a
+ID = 11
+Execution Stack = My stack contains: (WriteHeap(a, 30);(v = 32;(print(v);print(HeapRead(a)))))
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-HEAP
-1(INT):-> 20
+-----------------------
 
+ID = 10
+Execution Stack = My stack contains: print(HeapRead(a))
+print(v)
 
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
-b = a
+SymTable = My dictionary contains a-> int
+v-> 10
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-OUT
-My list contains 
-FILE_TABLE
+-----------------------
 
-HEAP
-1(INT):-> 20
+ID = 11
+Execution Stack = My stack contains: (v = 32;(print(v);print(HeapRead(a))))
+WriteHeap(a, 30)
 
+SymTable = My dictionary contains a-> int
+v-> 10
 
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+-----------------------
 
-OUT
-My list contains 
-FILE_TABLE
+ID = 10
+Execution Stack = My stack contains: print(HeapRead(a))
+print(v)
 
-HEAP
-1(INT):-> 20
+SymTable = My dictionary contains a-> int
+v-> 10
 
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
+-----------------------
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+ID = 11
+Execution Stack = My stack contains: (v = 32;(print(v);print(HeapRead(a))))
+WriteHeap(a, 30)
 
-OUT
-My list contains 
-FILE_TABLE
+SymTable = My dictionary contains a-> int
+v-> 10
 
-HEAP
-1(INT):-> 20
+Output List = My list contains 
+File Table = My dictionary contains 
+Heap = 1(int):-> 22
 
+-----------------------
 
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
-(a 30)
+ID = 10
+Execution Stack = My stack contains: print(HeapRead(a))
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 10
 
-HEAP
-1(INT):-> 20
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
+-----------------------
 
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
-(a 30)
+ID = 11
+Execution Stack = My stack contains: (v = 32;(print(v);print(HeapRead(a))))
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 10
 
-HEAP
-1(INT):-> 20
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
+-----------------------
 
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
+ID = 10
+Execution Stack = My stack contains: print(HeapRead(a))
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 10
 
-HEAP
-1(INT):-> 20
-2(INT):-> 30
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
+-----------------------
 
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
+ID = 11
+Execution Stack = My stack contains: (v = 32;(print(v);print(HeapRead(a))))
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 
-FILE_TABLE
+Output List = My list contains 10
 
-HEAP
-1(INT):-> 20
-2(INT):-> 30
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
+-----------------------
 
-EXE_STACK
-My stack contains: print(HeapRead(a))
-print(HeapRead(b))
+ID = 10
+Execution Stack = My stack contains: 
+SymTable = My dictionary contains a-> int
+v-> 10
 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-print(HeapRead(b))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 20
-
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 20
-
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 20
+Output List = My list contains 10
 30
 
-FILE_TABLE
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
-HEAP
-1(INT):-> 20
-2(INT):-> 30
+-----------------------
 
+ID = 11
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
+v = 32
 
-EXE_STACK
-My stack contains: 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 10
 
-OUT
-My list contains 20
+Output List = My list contains 10
 30
 
-FILE_TABLE
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
-HEAP
-1(INT):-> 20
-2(INT):-> 30
+-----------------------
 
+ID = 11
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
+v = 32
 
-EXE_STACK
-My stack contains: (Ref (int)  a;(Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))))
+SymTable = My dictionary contains a-> int
+v-> 10
 
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
-Ref (int)  a
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
-Ref (int)  a
-
-SYM_TABLE
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (Ref (int)  b;((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
-Ref (int)  b
-
-SYM_TABLE
-a -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
-Ref (int)  b
-
-SYM_TABLE
-a -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: ((a 20);(b = a;((a 30);(print(HeapRead(b));print(HeapRead(a))))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
-(a 20)
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
-(a 20)
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-
-
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: (b = a;((a 30);(print(HeapRead(b));print(HeapRead(a)))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
-b = a
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
-b = a
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: ((a 30);(print(HeapRead(b));print(HeapRead(a))))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
-(a 30)
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
-(a 30)
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-
-
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: (print(HeapRead(b));print(HeapRead(a)))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-print(HeapRead(b))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-print(HeapRead(b))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 20
-
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: print(HeapRead(a))
-
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 20
-
-FILE_TABLE
-
-HEAP
-1(INT):-> 20
-2(INT):-> 30
-
-
-EXE_STACK
-My stack contains: 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
-
-OUT
-My list contains 20
+Output List = My list contains 10
 30
 
-FILE_TABLE
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
-HEAP
-1(INT):-> 20
-2(INT):-> 30
+-----------------------
 
+ID = 11
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
 
-EXE_STACK
-My stack contains: 
-SYM_TABLE
-a -> int (Ref (int) )
-b -> int (Ref (int) )
+SymTable = My dictionary contains a-> int
+v-> 32
 
-OUT
-My list contains 20
+Output List = My list contains 10
 30
 
-FILE_TABLE
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
 
-HEAP
-1(INT):-> 20
-2(INT):-> 30
+-----------------------
 
+ID = 11
+Execution Stack = My stack contains: (print(v);print(HeapRead(a)))
+
+SymTable = My dictionary contains a-> int
+v-> 32
+
+Output List = My list contains 10
+30
+
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
+
+-----------------------
+
+ID = 11
+Execution Stack = My stack contains: print(HeapRead(a))
+print(v)
+
+SymTable = My dictionary contains a-> int
+v-> 32
+
+Output List = My list contains 10
+30
+
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
+
+-----------------------
+
+ID = 11
+Execution Stack = My stack contains: print(HeapRead(a))
+print(v)
+
+SymTable = My dictionary contains a-> int
+v-> 32
+
+Output List = My list contains 10
+30
+
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
+
+-----------------------
+
+ID = 11
+Execution Stack = My stack contains: print(HeapRead(a))
+
+SymTable = My dictionary contains a-> int
+v-> 32
+
+Output List = My list contains 10
+30
+32
+
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
+
+-----------------------
+
+ID = 11
+Execution Stack = My stack contains: print(HeapRead(a))
+
+SymTable = My dictionary contains a-> int
+v-> 32
+
+Output List = My list contains 10
+30
+32
+
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
+
+-----------------------
+
+ID = 11
+Execution Stack = My stack contains: 
+SymTable = My dictionary contains a-> int
+v-> 32
+
+Output List = My list contains 10
+30
+32
+30
+
+File Table = My dictionary contains 
+Heap = 1(int):-> 30
+
+-----------------------
 

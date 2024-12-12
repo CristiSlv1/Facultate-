@@ -11,19 +11,37 @@ import exceptions.RepoException;
 import model.states.PrgState;
 
 public class Repository implements IRepository{
-    private final List<PrgState> programs;
-    private int currentProgramIndex;
+    private List<PrgState> programs;
     private final String filename;
 
     public Repository(String file){
         this.programs = new LinkedList<>();
-        this.currentProgramIndex = 0;
         this.filename = file;
     }
 
     @Override
-    public PrgState getCurrentProgram() {
-        return this.programs.get(this.currentProgramIndex);
+    public List<PrgState> getStates() {
+        return this.programs;
+    }
+
+    @Override
+    public void clearLogFile(PrgState prgState) throws RepoException{
+        try{
+            PrintWriter writer = new PrintWriter(new FileWriter(filename));
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException("File does not exist");
+        }
+    }
+    @Override
+    public List<PrgState> getPrgStatesList() {
+        return this.programs;
+    }
+
+    @Override
+    public void setPrgList(List<PrgState> programStates) {
+        this.programs.clear();
+        this.programs = programStates;
     }
 
     @Override
@@ -32,10 +50,10 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public void lodPrgStateExec() throws RepoException {
+    public void lodPrgStateExec(PrgState prgState) throws RepoException {
         try{
             PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)));
-            writer.println(this.getCurrentProgram().toString());
+            writer.println(prgState.toString());
             writer.close();
         }catch(IOException e){
             throw new LoadFileException("Error loading file");

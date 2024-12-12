@@ -135,25 +135,21 @@ public class Interpreter
         Controller controller9 = new Controller(repo9, true);
         controller9.addProgram(statement9);
 
-        //Ref int a; Ref int b; new (a,20); b=a; new(a,30); print(rH(b)); print(rH(a))
-        IStmt statement10 = new CompStmt(
-                new VariablesDeclarationStmt("a", new RefType(new IntType())),
-                new CompStmt(new VariablesDeclarationStmt("b", new RefType(new IntType())),
-                        new CompStmt(new HeapAllocationStatement(new ValueExpression(new IntValue(20)), "a"),
-                                new CompStmt(new AssignStmt("b", new VariableExpression("a")),
-                                        new CompStmt(new HeapAllocationStatement(new ValueExpression(new IntValue(30)), "a"),
-                                                new CompStmt(new PrintStm(new HeapReadExpression(new VariableExpression("b"))),
-                                                        new PrintStm(new HeapReadExpression(new VariableExpression("a")))
-                                                )
-                                        )
-                                )
-                        )
-                )
-        );
+        //int v; Ref int a; v=10; new(a,22); fork(wH(a,30); v=32; print(v); print(rH(a))); print(v);print(rH(a))
+        IStmt statement10 = new CompStmt(new VariablesDeclarationStmt("v", new IntType()),
+                new CompStmt(new VariablesDeclarationStmt("a", new RefType(new IntType())),
+                        new CompStmt(new AssignStmt("v", new ValueExpression(new IntValue(10))),
+                                new CompStmt(new HeapAllocationStatement( new ValueExpression(new IntValue(22)),"a"),
+                                        new CompStmt(new ForkStatement(new CompStmt(new HeapWriteStatement(new ValueExpression(new IntValue(30)),"a"),
+                                                new CompStmt(new AssignStmt("v", new ValueExpression(new IntValue(32))),
+                                                        new CompStmt(new PrintStm(new VariableExpression("v")), new PrintStm(new HeapReadExpression(new VariableExpression("a"))))))),
+                                                new CompStmt(new PrintStm(new VariableExpression("v")), new PrintStm(new HeapReadExpression(new VariableExpression("a")))))))));
+
 
         IRepository repo10 = new Repository("log10.txt");
         Controller controller10 = new Controller(repo10, true);
         controller10.addProgram(statement10);
+
 
 
         TextMenu menu = new TextMenu();
@@ -167,7 +163,7 @@ public class Interpreter
         menu.addCommand(new RunExampleCommand("8",statement8.toString() , controller8));
         menu.addCommand(new RunExampleCommand("9",statement9.toString() , controller9));
         menu.addCommand(new RunExampleCommand("10",statement10.toString() , controller10));
-        menu.addCommand(new ExitCommand("11" , "Exit"));
+        menu.addCommand(new ExitCommand("0" , "Exit"));
         menu.show();
 
     }

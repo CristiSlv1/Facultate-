@@ -1,9 +1,8 @@
 package view.commands;
 
 import controller.Controller;
-import exceptions.EmptyStackException;
+import exceptions.CommandException;
 
-import java.io.IOException;
 
 public class RunExampleCommand extends Command {
 
@@ -16,7 +15,11 @@ public class RunExampleCommand extends Command {
     }
 
     @Override
-    public void execute() throws EmptyStackException, IOException {
-        controller.executeAllSteps();
+    public void execute() throws CommandException {
+        try {
+            controller.allStep();
+        }catch(InterruptedException e){
+            throw  new CommandException(e.getMessage());
+        }
     }
 }

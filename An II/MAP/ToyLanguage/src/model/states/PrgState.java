@@ -1,99 +1,70 @@
 package model.states;
-import java.io.BufferedReader;
-
+import exceptions.EmptyStackException;
 import model.adt.*;
-import model.statements.*;
-import model.values.*;
+import model.statements.IStmt;
+import model.values.IValue;
+import model.values.StringValue;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+
 
 public class PrgState {
-    private IStmt statement;
-    protected IMyStack<IStmt> exeStack;
 
-    protected IMyDictionary<String, IValue> symTable;
+    private final int id;
+    private static int lastIndex;
+
+    protected IMyStack<IStmt> exeStack;
+    protected IMyDictionary<String , IValue> symTable;
     protected IMyList<String> output;
     protected IStmt originalProgram;
-    private MyDictionary<StringValue, BufferedReader> fileTable;
+    private final IMyDictionary<StringValue, BufferedReader> fileTable;
     private IMyHeap heap;
-    
-    public PrgState(IStmt statemnt){
-        this.statement = statemnt;
+
+
+
+    public PrgState(IStmt statement)
+    {
         this.exeStack = new MyStack<>();
         this.symTable = new MyDictionary<>();
         this.output = new MyList<>();
         this.fileTable = new MyDictionary<>();
         this.heap = new MyHeap();
-
+        this.originalProgram = statement.deepCopy();
         exeStack.push(statement);
+        this.id = getNewId();
     }
 
-    public PrgState(IMyStack<IStmt> e, IMyDictionary<String, IValue> dictionary, IMyList<String> list, IStmt InitialStatement, MyDictionary<StringValue, BufferedReader> fileTable, IMyHeap heap){
+    public PrgState(IMyStack<IStmt> e , IMyDictionary<String,IValue> dictionary , IMyList<String> list , IStmt InitialStatement , IMyDictionary<StringValue , BufferedReader> fileTable , IMyHeap heap)
+    {
         this.exeStack = e;
         this.symTable = dictionary;
         this.output = list;
         this.fileTable = fileTable;
         this.heap = heap;
+        this.originalProgram = InitialStatement.deepCopy();
         exeStack.push(InitialStatement);
-
+        this.id = getNewId();
     }
 
-    public IMyDictionary<StringValue, BufferedReader> getFileTable() {
+    public IMyDictionary<StringValue,BufferedReader> getFileTable()
+    {
         return this.fileTable;
     }
 
-    public IMyStack<IStmt> getExeStack(){
-        return this.exeStack;
-    }
-
-    public void setExeStack(IMyStack<IStmt> exeStack){
-        this.exeStack = exeStack;
-    }
-
-    public IMyDictionary<String, IValue> getSymTable() {
-        return symTable;
-    }
-
-    public void setSymTable(IMyDictionary<String, IValue> symTable){
-        this.symTable = symTable;
-    }
-
-    public IMyList<String> getOutput(){
-        return this.output;
-    }
-
-    public IMyHeap getHeap(){
+    public IMyHeap getHeap()
+    {
         return this.heap;
     }
 
-
-    public String fileTableToString(){
-        StringBuilder text = new StringBuilder();
-        
-        for(StringValue key : this.fileTable.getKeys()){
-            text.append(key).append("\n");
-        }
-
-        return text.toString();
+    public void setHeap(IMyHeap heap)
+    {
+        this.heap = heap;
     }
-
-    public String symTableToString() {
-        StringBuilder symbolTableStringBuilder = new StringBuilder();
-
-        for (String key : this.symTable.getKeys()) {
-            IValue value = symTable.getValue(key);
-            symbolTableStringBuilder.append(String.format("%s -> %s (%s)\n",
-                    key,
-                    value.toString(),
-                    value.getType().toString()
-            ));
-        }
-
-        return symbolTableStringBuilder.toString();
-    }
-
 
     public String HeapToString()
     {
-        StringBuilder answer = new StringBuilder("");
+        StringBuilder answer = new StringBuilder();
         for(Integer key: heap.getMap().keySet()){
             answer.append(key).append("(").append(heap.getValue(key).getType().toString())
                     .append(")").append(":-> ").
@@ -104,8 +75,48 @@ public class PrgState {
 
     @Override
     public String toString() {
-        return String.format("EXE_STACK\n%s\nSYM_TABLE\n%s\nOUT\n%s\nFILE_TABLE\n%s\nHEAP\n%S\n", exeStack.toString(), symTableToString(), output.toString(), fileTableToString(),HeapToString());
+
+        return "ID = " + this.id + "\n" +
+                "Execution Stack = " + exeStack.toString() + "\n" +
+                "SymTable = " + symTable.toString() + "\n" +
+                "Output List = " + output.toString() + "\n" +
+                "File Table = " + fileTable.toString() + "\n" +
+                "Heap = " + HeapToString() + "\n" +
+                "-----------------------\n";
     }
 
-    
+    public IMyList<String> getOutput()
+    {
+        return this.output;
+    }
+
+    public boolean isNotCompleted()
+    {
+        return !this.exeStack.isEmpty();
+    }
+
+    public PrgState executeOneStep() throws EmptyStackException, IOException {
+        if(exeStack.isEmpty())
+            throw new EmptyStackException("Execution Stack Error: Execution stack is empty");
+
+        IStmt currentStatement = exeStack.pop();
+        return currentStatement.execute(this);
+
+    }
+
+    public IMyStack<IStmt> getExeStack() {
+        return exeStack;
+    }
+
+    private synchronized int getNewId()
+    {
+        lastIndex++;
+        return lastIndex;
+    }
+
+
+    public IMyDictionary<String, IValue> getSymTable() {
+        return symTable;
+    }
+
 }

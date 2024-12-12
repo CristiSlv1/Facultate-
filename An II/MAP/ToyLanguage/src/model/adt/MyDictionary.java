@@ -71,7 +71,7 @@ public class MyDictionary<K,V> implements IMyDictionary<K,V>
     }
 
     @Override
-    public IMyDictionary<K,V> copy()
+    public IMyDictionary<K,V> deepCopy()
     {
         IMyDictionary<K,V> newDictionary = new MyDictionary<>();
         for(K key : getKeys())

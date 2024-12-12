@@ -11,6 +11,7 @@ public interface IMyDictionary<K,V>
     void remove(K key) throws KeyNotFoundException;
     boolean contains(K key);
     Set<K> getKeys();
-    IMyDictionary<K,V> copy();
+    IMyDictionary<K,V> deepCopy();
     Map<K,V> getContent();
+
 }
