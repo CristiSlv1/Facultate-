@@ -2,9 +2,11 @@ package model.statements;
 
 import exceptions.ADTException;
 import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.expressions.IExp;
 import model.states.PrgState;
 import model.types.BoolType;
+import model.types.IType;
 import model.values.BoolValue;
 import model.values.IValue;
 
@@ -43,6 +45,19 @@ public class IfStmt implements IStmt{
     @Override
     public String toString() {
         return "if( " + expression + " ){ " + thenStatement + "} else { " + elseStatement + " }\n";
+    }
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException {
+        IType typeExp = expression.typecheck(typeEnv);
+        if(typeExp.equals(new BoolType()))
+        {
+            thenStatement.typeCheck(typeEnv.deepCopy());
+            elseStatement.typeCheck(typeEnv.deepCopy());
+            return typeEnv;
+        }
+        else
+            throw new StatementException("IF STATEMENT EXCEPTION: The condition of if has not the type bool");
     }
 
 }

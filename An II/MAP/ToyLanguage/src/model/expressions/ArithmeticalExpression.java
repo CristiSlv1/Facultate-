@@ -5,6 +5,7 @@ import exceptions.KeyNotFoundException;
 import model.adt.IMyDictionary;
 import model.adt.IMyHeap;
 import model.adt.IMyMap;
+import model.types.IType;
 import model.types.IntType;
 import model.values.IValue;
 import model.values.IntValue;
@@ -82,5 +83,17 @@ public class ArithmeticalExpression implements IExp{
     @Override
     public IExp deepCopy() {
         return new ArithmeticalExpression(this.left.deepCopy() , this.operator,this.right.deepCopy());
+    }
+
+    @Override
+    public IType typecheck(IMyDictionary<String, IType> typeEnv) throws ExpressionException{
+        IType type1, type2;
+        type1 = left.typecheck(typeEnv);
+        type2 = right.typecheck(typeEnv);
+        if(!type1.equals(new IntType()))
+            throw new ExpressionException("Arithmetical Expression exception: left expression is not int!");
+        if(!type2.equals(new IntType()))
+            throw new ExpressionException("Arithmetical expression exception: right expression not is int!");
+        return new IntType();
     }
 }

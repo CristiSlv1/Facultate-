@@ -2,7 +2,9 @@ package model.statements;
 
 import exceptions.ADTException;
 import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.states.PrgState;
+import model.types.IType;
 
 public class CompStmt implements IStmt{
     private final IStmt statement1;
@@ -30,5 +32,11 @@ public class CompStmt implements IStmt{
     @Override
     public String toString(){
         return "(" + statement1.toString() + ";" + statement2.toString() + ")";
+    }
+
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException {
+        return statement2.typeCheck(statement1.typeCheck(typeEnv));
     }
 }

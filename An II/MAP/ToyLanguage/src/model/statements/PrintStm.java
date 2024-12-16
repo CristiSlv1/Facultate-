@@ -1,6 +1,10 @@
 package model.statements;
+import exceptions.ExpressionException;
+import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.expressions.IExp;
 import model.states.PrgState;
+import model.types.IType;
 import model.values.IValue;
 
 public class PrintStm implements IStmt
@@ -31,4 +35,10 @@ public class PrintStm implements IStmt
         return new PrintStm(this.expression.deepCopy());
     }
 
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException, ExpressionException {
+        expression.typecheck(typeEnv);
+        return typeEnv;
+    }
 }

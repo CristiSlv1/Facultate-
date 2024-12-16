@@ -1,18 +1,17 @@
 package controller;
 
 import exceptions.*;
-import exceptions.EmptyStackException;
 import model.adt.IMyHeap;
 import model.adt.IMyList;
-import model.adt.IMyStack;
 import model.adt.MyList;
 import model.statements.IStmt;
 import model.states.PrgState;
 import model.values.IValue;
 import model.values.RefValue;
 import repository.IRepository;
+import model.adt.*;
+import model.types.*;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -32,6 +31,14 @@ public class Controller
     }
 
    public void allStep() throws InterruptedException{
+       for (PrgState state: repository.getPrgStatesList()) {
+           IMyDictionary<String, IType> typeTable = new MyDictionary<>();
+
+           if(!state.getExeStack().isEmpty()) {
+               state.getExeStack().peek().typeCheck(typeTable);
+           }
+       }
+
         executor = Executors.newFixedThreadPool(2);
         List<PrgState> programsList = removeCompletedPrgStates(repository.getStates());
 
@@ -67,7 +74,7 @@ public class Controller
 
         prgStates1.forEach(prgState -> {
             try {
-                repository.lodPrgStateExec(prgState);
+                repository.logPrgStateExec(prgState);
             }catch (RepoException e){
                 throw new RepoException(e.getMessage());
             }
@@ -97,7 +104,7 @@ public class Controller
 
         prgStates1.forEach(prgState -> {
             try{
-                repository.lodPrgStateExec(prgState);
+                repository.logPrgStateExec(prgState);
             }catch(RepoException e){
                 throw new ControllerException("Error while executing one step! " + e);
             }

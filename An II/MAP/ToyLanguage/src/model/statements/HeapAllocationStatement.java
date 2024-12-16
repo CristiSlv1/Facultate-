@@ -2,6 +2,7 @@ package model.statements;
 
 import exceptions.ADTException;
 import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.expressions.IExp;
 import model.states.PrgState;
 import model.types.IType;
@@ -52,5 +53,15 @@ public class HeapAllocationStatement implements IStmt
     public String toString()
     {
         return String.format("(%s %s)",var,expression);
+    }
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException {
+        IType typeVariable = typeEnv.getValue(var);
+        IType typeExpression = expression.typecheck(typeEnv);
+
+        if(!typeVariable.equals(new RefType(typeExpression)))
+            throw new StatementException("HEAP ALLOCATION STATEMENT EXCEPTION: Variable and expression types are not compatible");
+        return typeEnv;
     }
 }

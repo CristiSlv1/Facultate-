@@ -108,7 +108,7 @@ public class PrgState {
         return exeStack;
     }
 
-    private synchronized int getNewId()
+    private static synchronized int getNewId()
     {
         lastIndex++;
         return lastIndex;

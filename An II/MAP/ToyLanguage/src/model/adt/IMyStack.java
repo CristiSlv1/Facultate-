@@ -10,4 +10,5 @@ public interface IMyStack<T> {
     int getSize();
     Stack<T> getStack();
     boolean isEmpty();
+    T peek();
 }

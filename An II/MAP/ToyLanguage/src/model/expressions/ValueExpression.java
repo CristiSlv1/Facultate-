@@ -34,4 +34,8 @@ public class ValueExpression implements IExp{
         return String.format("%s",value.toString());
     }
 
+    @Override
+    public IType typecheck(IMyDictionary<String, IType> typeEnv) throws ExpressionException {
+        return value.getType();
+    }
 }

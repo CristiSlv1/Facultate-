@@ -1,5 +1,7 @@
 package model.statements;
 import exceptions.ExpressionException;
+import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.states.PrgState;
 import model.types.IType;
 
@@ -32,6 +34,12 @@ public class VariablesDeclarationStmt implements IStmt {
     public String toString()
     {
         return String.format("%s %s",type.toString(),name);
+    }
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException {
+        typeEnv.insert(name,type);
+        return typeEnv;
     }
 
 }

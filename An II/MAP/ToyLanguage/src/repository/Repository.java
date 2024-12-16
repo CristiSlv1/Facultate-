@@ -49,8 +49,10 @@ public class Repository implements IRepository{
         this.programs.add(program);
     }
 
+
+
     @Override
-    public void lodPrgStateExec(PrgState prgState) throws RepoException {
+    public void logPrgStateExec(PrgState prgState) throws RepoException {
         try{
             PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)));
             writer.println(prgState.toString());

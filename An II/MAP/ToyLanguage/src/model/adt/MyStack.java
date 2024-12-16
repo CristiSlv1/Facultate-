@@ -2,6 +2,7 @@ package model.adt;
 
 import java.util.Stack;
 
+import exceptions.ADTException;
 import exceptions.EmptyStackException;
 
 public class MyStack<T> implements IMyStack<T> {
@@ -23,6 +24,14 @@ public class MyStack<T> implements IMyStack<T> {
             throw new EmptyStackException("Stack is empty!\n");
         }
         return stack.pop();
+    }
+
+    @Override
+    public T peek() {
+        if (stack.isEmpty()) {
+            throw new ADTException("Stack is empty!");
+        }
+        return stack.peek();
     }
 
     @Override

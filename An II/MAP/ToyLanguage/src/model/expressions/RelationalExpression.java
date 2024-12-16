@@ -4,6 +4,8 @@ import exceptions.ADTException;
 import exceptions.ExpressionException;
 import model.adt.IMyDictionary;
 import model.adt.IMyHeap;
+import model.types.BoolType;
+import model.types.IType;
 import model.types.IntType;
 import model.values.BoolValue;
 import model.values.IValue;
@@ -65,5 +67,19 @@ public class RelationalExpression implements IExp{
     public String toString()
     {
         return expression1.toString() + " " + this.operator + " " + this.expression2.toString();
+    }
+
+    @Override
+    public IType typecheck(IMyDictionary<String, IType> typeEnv) throws ExpressionException {
+        IType type1 , type2;
+        type1 = expression1.typecheck(typeEnv);
+        type2 = expression2.typecheck(typeEnv);
+
+        if(!type1.equals(new IntType()))
+            throw new ExpressionException("RELATIONAL EXPRESSION EXCEPTION: expression1 is not of type int");
+        if(!type2.equals(new IntType()))
+            throw new ExpressionException("RELATIONAL EXPRESSION EXCEPTION: expression2 is not of type int");
+
+        return new BoolType();
     }
 }

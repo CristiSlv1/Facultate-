@@ -4,6 +4,7 @@ import exceptions.ADTException;
 import exceptions.ExpressionException;
 import model.adt.IMyDictionary;
 import model.adt.IMyHeap;
+import model.types.IType;
 import model.values.IValue;
 
 public class VariableExpression implements IExp {
@@ -26,4 +27,8 @@ public class VariableExpression implements IExp {
         return new VariableExpression(this.variable);
     }
 
+    @Override
+    public IType typecheck(IMyDictionary<String, IType> typeEnv) throws ExpressionException {
+        return typeEnv.getValue(variable);
+    }
 }

@@ -2,8 +2,10 @@ package model.statements;
 
 import exceptions.ADTException;
 import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.expressions.IExp;
 import model.states.PrgState;
+import model.types.IType;
 import model.types.StringType;
 import model.values.StringValue;
 
@@ -55,6 +57,14 @@ public class OpenReadFileStatement implements IStmt {
     @Override
     public String toString(){
         return "open(" + expression.toString() + ")";
+    }
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException {
+        if(!expression.typecheck(typeEnv).equals(new StringType()))
+            throw new StatementException("OPEN READ FILE STATEMENT EXCEPTION: expression is not of stringType");
+
+        return typeEnv;
     }
 
 }

@@ -2,8 +2,11 @@ package model.statements;
 
 import exceptions.ADTException;
 import exceptions.StatementException;
+import model.adt.IMyDictionary;
 import model.expressions.IExp;
 import model.states.PrgState;
+import model.types.IType;
+import model.types.RefType;
 import model.values.IValue;
 import model.values.RefValue;
 
@@ -42,5 +45,15 @@ public class HeapWriteStatement implements IStmt{
     @Override
     public String toString() {
         return String.format("WriteHeap(%s, %s)", variable, expression);
+    }
+
+    @Override
+    public IMyDictionary<String, IType> typeCheck(IMyDictionary<String, IType> typeEnv) throws StatementException {
+        IType typeVariable = typeEnv.getValue(variable);
+        IType typeExpression = expression.typecheck(typeEnv);
+
+        if(!typeVariable.equals(new RefType(typeExpression)))
+            throw new StatementException("HEAP WRITE STATEMENT EXCEPTION: Variable and expression types are not compatible");
+        return typeEnv;
     }
 }
