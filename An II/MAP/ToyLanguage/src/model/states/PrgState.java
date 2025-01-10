@@ -119,4 +119,8 @@ public class PrgState {
         return symTable;
     }
 
+    public int getId()
+    {
+        return this.id;
+    }
 }

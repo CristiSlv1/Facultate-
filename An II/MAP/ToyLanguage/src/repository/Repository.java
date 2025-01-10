@@ -1,4 +1,8 @@
 package repository;
+
+import exceptions.RepoException;
+import model.states.PrgState;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,33 +10,53 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
-import exceptions.LoadFileException;
-import exceptions.RepoException;
-import model.states.PrgState;
-
-public class Repository implements IRepository{
+public class Repository implements IRepository
+{
     private List<PrgState> programs;
     private final String filename;
 
-    public Repository(String file){
+    public Repository(String file)
+    {
         this.programs = new LinkedList<>();
         this.filename = file;
     }
 
     @Override
-    public List<PrgState> getStates() {
+    public List<PrgState> getStates()
+    {
         return this.programs;
     }
 
     @Override
-    public void clearLogFile(PrgState prgState) throws RepoException{
-        try{
-            PrintWriter writer = new PrintWriter(new FileWriter(filename));
+    public void addProgram(PrgState program)
+    {
+        this.programs.add(program);
+    }
+
+    @Override
+    public void logPrgStateExec(PrgState prgState) throws RepoException
+    {
+        try
+        {
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename , true)));
+            writer.println(prgState.toString());
             writer.close();
         } catch (IOException e) {
-            throw new RuntimeException("File does not exist");
+            throw new RepoException("File doesn't exit");
         }
     }
+
+    @Override
+    public void clearLogFile(PrgState prgState) throws RepoException {
+        try {
+            PrintWriter clearWriter = new PrintWriter(new FileWriter(filename));
+            clearWriter.close();
+        } catch (IOException e) {
+            throw new RepoException("File doesn't exist");
+        }
+    }
+
+
     @Override
     public List<PrgState> getPrgStatesList() {
         return this.programs;
@@ -45,22 +69,8 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public void addProgram(PrgState program) {
-        this.programs.add(program);
-    }
-
-
-
-    @Override
-    public void logPrgStateExec(PrgState prgState) throws RepoException {
-        try{
-            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)));
-            writer.println(prgState.toString());
-            writer.close();
-        }catch(IOException e){
-            throw new LoadFileException("Error loading file");
-        }
-
+    public Integer getProgramStatesCount() {
+        return this.programs.size();
     }
 
 }
