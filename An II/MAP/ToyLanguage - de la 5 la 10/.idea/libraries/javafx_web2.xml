@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="javafx.web2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javafx/lib/javafx-swt.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Toy_Language_Interpreter/src" />
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>

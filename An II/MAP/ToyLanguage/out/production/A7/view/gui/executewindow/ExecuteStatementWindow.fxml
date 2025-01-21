@@ -9,63 +9,69 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="458.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.executewindow.ExecuteStatementController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.executewindow.ExecuteStatementController" style="-fx-background-color: #f4f4f4;">
    <children>
-      <TextField fx:id="numberProgramStatesTextField" layoutX="232.0" prefHeight="26.0" prefWidth="158.0" promptText="Number of program states" text="Number of program states">
+      <TextField fx:id="numberProgramStatesTextField" layoutX="320.0" layoutY="20.0" prefHeight="30.0" prefWidth="200.0" promptText="Number of program states" text="Number of program states" style="-fx-border-color: #d3d3d3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 5;">
          <font>
-            <Font name="Book Antiqua Bold" size="12.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TableView fx:id="heapTableView" layoutX="214.0" layoutY="52.0" prefHeight="162.0" prefWidth="206.0">
+      <!-- Top Center Table (Heap Table) -->
+      <TableView fx:id="heapTableView" layoutX="290.0" layoutY="80.0" prefHeight="150.0" prefWidth="220.0" style="-fx-border-color: #bdbdbd; -fx-border-radius: 8; -fx-background-radius: 8;">
          <columns>
-            <TableColumn fx:id="addressColumn" prefWidth="108.0" text="Address" />
-            <TableColumn fx:id="valueColumn" prefWidth="97.60001220703126" text="Value" />
+            <TableColumn fx:id="addressColumn" prefWidth="100.0" text="Address" />
+            <TableColumn fx:id="valueColumn" prefWidth="100.0" text="Value" />
          </columns>
       </TableView>
-      <Label fx:id="heapLabel" layoutX="270.0" layoutY="28.0" prefHeight="14.0" prefWidth="87.0" text="HeapTable">
+      <Label fx:id="heapLabel" layoutX="360.0" layoutY="60.0" text="Heap Table" style="-fx-text-fill: #333333; -fx-font-size: 16;">
          <font>
-            <Font name="Cambria Italic" size="18.0" />
+            <Font name="Arial Bold" />
          </font>
       </Label>
-      <ListView fx:id="outputListView" layoutX="14.0" layoutY="52.0" prefHeight="162.0" prefWidth="200.0" />
-      <Label fx:id="outputLabel" layoutX="80.0" layoutY="26.0" prefHeight="26.0" prefWidth="67.0" text="Output">
+      <!-- Left Table (Output List) -->
+      <ListView fx:id="outputListView" layoutX="50.0" layoutY="250.0" prefHeight="150.0" prefWidth="180.0" style="-fx-border-color: #bdbdbd; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Label fx:id="outputLabel" layoutX="110.0" layoutY="230.0" text="Output" style="-fx-text-fill: #333333; -fx-font-size: 16;">
          <font>
-            <Font name="Cambria Italic" size="18.0" />
+            <Font name="Arial Bold" />
          </font>
       </Label>
-      <ListView fx:id="fileTableListView" layoutX="416.0" layoutY="52.0" prefHeight="162.0" prefWidth="182.0" />
-      <Label fx:id="fileTableLabel" layoutX="479.0" layoutY="23.0" prefHeight="26.0" prefWidth="74.0" text="FileTable">
-         <font>
-            <Font name="Cambria Italic" size="18.0" />
-         </font>
-      </Label>
-      <ListView fx:id="identifiersListView" layoutX="14.0" layoutY="243.0" prefHeight="170.0" prefWidth="200.0"  onMouseClicked="#changeProgramState"/>
-      <Label layoutX="66.0" layoutY="217.0" prefHeight="22.0" prefWidth="96.0" text="Identifiers">
-         <font>
-            <Font name="Cambria Italic" size="18.0" />
-         </font>
-      </Label>
-      <TableView fx:id="SymTableView" layoutX="214.0" layoutY="244.0" prefHeight="170.0" prefWidth="206.0">
+      <!-- Center Table (Symbol Table) -->
+      <TableView fx:id="SymTableView" layoutX="290.0" layoutY="250.0" prefHeight="150.0" prefWidth="220.0" style="-fx-border-color: #bdbdbd; -fx-border-radius: 8; -fx-background-radius: 8;">
          <columns>
-            <TableColumn fx:id="variableNameColumn" prefWidth="100.79998779296875" text="Variable Name" />
-            <TableColumn fx:id="valueColumnSymTable" prefWidth="98.4000244140625" text="Value" />
+            <TableColumn fx:id="variableNameColumn" prefWidth="100.0" text="Variable Name" />
+            <TableColumn fx:id="valueColumnSymTable" prefWidth="100.0" text="Value" />
          </columns>
       </TableView>
-      <ListView fx:id="executionStackListView" layoutX="412.0" layoutY="244.0" prefHeight="170.0" prefWidth="190.0" />
-      <Label fx:id="executionStackLabel" layoutX="442.0" layoutY="200.0" prefHeight="56.0" prefWidth="182.0" text="Execution Stack">
+      <Label fx:id="symTableLabel" layoutX="350.0" layoutY="230.0" text="Symbol Table" style="-fx-text-fill: #333333; -fx-font-size: 16;">
          <font>
-            <Font name="Cambria Italic" size="18.0" />
+            <Font name="Arial Bold" />
          </font>
       </Label>
-      <Label fx:id="symTableLabel" layoutX="252.0" layoutY="201.0" prefHeight="56.0" prefWidth="182.0" text="Symbol Table">
+      <!-- Right Table (File Table) -->
+      <ListView fx:id="fileTableListView" layoutX="570.0" layoutY="250.0" prefHeight="150.0" prefWidth="180.0" style="-fx-border-color: #bdbdbd; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Label fx:id="fileTableLabel" layoutX="630.0" layoutY="230.0" text="File Table" style="-fx-text-fill: #333333; -fx-font-size: 16;">
          <font>
-            <Font name="Cambria Italic" size="18.0" />
+            <Font name="Arial Bold" />
          </font>
       </Label>
-      <Button layoutX="264.0" layoutY="418.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" text="Run one step" onAction="#handleRunOneStep">
+      <!-- Bottom Left (Identifiers) -->
+      <ListView fx:id="identifiersListView" layoutX="50.0" layoutY="450.0" prefHeight="150.0" prefWidth="180.0" onMouseClicked="#changeProgramState" style="-fx-border-color: #bdbdbd; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Label layoutX="100.0" layoutY="430.0" text="Identifiers" style="-fx-text-fill: #333333; -fx-font-size: 16;">
          <font>
-            <Font name="Cambria Bold Italic" size="14.0" />
+            <Font name="Arial Bold" />
+         </font>
+      </Label>
+      <!-- Bottom Center (Execution Stack) -->
+      <ListView fx:id="executionStackListView" layoutX="290.0" layoutY="450.0" prefHeight="150.0" prefWidth="220.0" style="-fx-border-color: #bdbdbd; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Label fx:id="executionStackLabel" layoutX="340.0" layoutY="430.0" text="Execution Stack" style="-fx-text-fill: #333333; -fx-font-size: 16;">
+         <font>
+            <Font name="Arial Bold" />
+         </font>
+      </Label>
+      <!-- Run Button -->
+      <Button layoutX="620.0" layoutY="520.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Run One Step" onAction="#handleRunOneStep" style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-border-radius: 8; -fx-background-radius: 8;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
          </font>
       </Button>
    </children>
